@@ -1,0 +1,22 @@
+process list hk plugin
+
+1. Install Webx: https://devcenter.heroku.com/articles/webx
+
+2. Install this plugin:
+
+  $ go get github.com/kr/hkps
+  $ mkdir -p /usr/local/lib/hk/plugin
+  $ cp $GOPATH/bin/hkps /usr/local/lib/hk/plugin/ps
+
+3. Try it:
+
+  $ hk ps
+  DYNO     UID        PID  PPID  C STIME TTY          TIME CMD
+  run.3871 nobody       1     0  0 05:08 ?        00:00:00 ps-run
+  run.3871 u5582        2     1  0 05:08 ?        00:00:00 bash
+  run.3871 u5582        7     2  0 05:08 ?        00:00:00 /tmp/webxd mon
+  run.3871 u5582       37     7  0 05:26 ?        00:00:00 ps -ef
+  web.1    nobody       1     0  0 05:06 ?        00:00:00 ps-run
+  web.1    u56189       2     1  0 05:06 ?        00:00:00 blog /app /tmp/dst
+  web.1    u56189       7     2  0 05:06 ?        00:00:00 /tmp/webxd web
+  web.1    u56189      33     7  0 05:26 ?        00:00:00 ps -ef
